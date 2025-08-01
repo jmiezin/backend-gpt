@@ -1,10 +1,11 @@
+// package.json
 {
   "name": "backend-universel",
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node -r tsconfig-paths/register dist/server.js",
     "dev": "ts-node-dev --respawn -r tsconfig-paths/register src/server.ts"
   },
   "dependencies": {
