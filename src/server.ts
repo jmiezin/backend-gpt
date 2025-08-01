@@ -1,4 +1,5 @@
-// 📄 backend-universel/src/server.ts
+// 📄 src/server.ts
+
 import "./config/env";               // charge .env dans process.env
 import express from "express";
 import cors from "cors";
@@ -19,12 +20,11 @@ import projectsRoutes from "./routes/projects";
 import usersRoutes from "./routes/users";
 import ngrokRoutes from "./routes/ngrokRoutes";
 
-// ③ Azure/OpenAI + permissions
+// --- ③ Azure/OpenAI + permissions ---
 import openaiRoutes from "./routes/openaiRoutes";
 import scanRoutes from "./routes/scanRoutes";
 import permissionsRoutes from "./routes/permissionsRoutes";
-import salesforceRoutes from "./routes/salesforceRoutes";
-import structureRoutes from "./routes/structureRoutes";
+// import structureRoutes from "./routes/structureRoutes"; // Si tu ne l'utilises pas non plus, supprime
 
 const PORT = Number(process.env.PORT) || 3010;
 const app = express();
@@ -68,8 +68,7 @@ app.use("/ngrok", ngrokRoutes);
 app.use("/openai", openaiRoutes);
 app.use("/scan", scanRoutes);
 app.use("/permissions", permissionsRoutes);
-app.use("/salesforce", salesforceRoutes);
-app.use("/structure", structureRoutes);
+// app.use("/structure", structureRoutes); // si tu gardes structureRoutes, décommente
 
 // --- Gestion des erreurs 404 & 500 ---
 app.use((_req, res) => res.status(404).json({ error: "Not Found" }));
