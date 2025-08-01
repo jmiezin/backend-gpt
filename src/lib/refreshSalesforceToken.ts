@@ -1,8 +1,8 @@
 // 📄 src/lib/refreshSalesforceToken.ts
 import fetch from "node-fetch";
-import { getSalesforceToken } from "@/lib/getSalesforceToken";
-import { saveSalesforceToken } from "@/lib/saveSalesforceToken";
-import { decrypt } from "@/utils/encryption";
+import getToken from './getSalesforceToken'
+import { saveSalesforceToken } from './saveSalesforceToken';
+import { decrypt } from '../utils/encryption';
 
 const TOKEN_URL = `${process.env.SF_LOGIN_URL}/services/oauth2/token`;
 
