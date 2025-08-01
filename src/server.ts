@@ -19,11 +19,10 @@ import projectsRoutes from "./routes/projects";
 import usersRoutes from "./routes/users";
 import ngrokRoutes from "./routes/ngrokRoutes";
 
-// ③ Azure/OpenAI + permissions
+// ③ Azure/OpenAI + permissions (business protégées)
 import openaiRoutes from "./routes/openaiRoutes";
 import scanRoutes from "./routes/scanRoutes";
 import permissionsRoutes from "./routes/permissionsRoutes";
-// import salesforceRoutes from "./routes/salesforceRoutes";  ← supprimé
 import structureRoutes from "./routes/structureRoutes";
 
 const PORT = Number(process.env.PORT) || 3010;
@@ -49,8 +48,6 @@ app.use("/auth", authRoutes);
 
 // --- ② Montage du middleware d’auth avant toutes les routes business ---
 app.use(validateAccessToken());
-// si tu veux un scope spécifique, tu peux faire :
-// app.use(validateAccessToken("scope:needed"));
 
 // --- ③ Business routes protégées par validateAccessToken() ---
 app.use("/assistants", assistantsRoutes);
@@ -68,7 +65,6 @@ app.use("/ngrok", ngrokRoutes);
 app.use("/openai", openaiRoutes);
 app.use("/scan", scanRoutes);
 app.use("/permissions", permissionsRoutes);
-// app.use("/salesforce", salesforceRoutes);  ← supprimé
 app.use("/structure", structureRoutes);
 
 // --- Gestion des erreurs 404 & 500 ---
