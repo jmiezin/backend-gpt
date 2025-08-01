@@ -1,0 +1,24 @@
+// src/lib/cosmosClient.ts
+import { CosmosClient } from "@azure/cosmos";
+import "../config/env";
+
+const endpoint = process.env.COSMOS_ENDPOINT;
+const key = process.env.COSMOS_KEY;
+const databaseId = process.env.COSMOS_DB_NAME;
+
+if (!endpoint || !key || !databaseId) {
+  throw new Error("❌ Variables d'environnement Cosmos DB manquantes.");
+}
+
+const client = new CosmosClient({ endpoint, key });
+
+const database = client.database(databaseId);
+
+export const containers = {
+  assistants: database.container("assistants"),
+  messages: database.container("messages"),
+  projects: database.container("projects"),
+  users: database.container("users"),
+  conversations: database.container("conversations"),
+  memory: database.container("memory"),
+};

@@ -1,0 +1,8 @@
+# ngrok.yml
+version: "2"
+authtoken: 2xB9VdIZ2y5Fg88o1mJbXPI17UN_4XTUsdTefwqezZKbbYZJC
+tunnels:
+  isonic-copilot:
+    proto: http
+    addr: 3010
+    domain: isonic-copilot.ngrok.app
