@@ -1,7 +1,7 @@
 // 📄 src/lib/saveSalesforceToken.ts
 
-import { containers } from "@/lib/cosmosClient"; 
-import { encrypt } from "@/utils/encryption";    
+import { containers } from "./cosmosClient";
+import { encrypt } from "../utils/encryption";
 
 export interface RawTokenData {
   access_token:   string;
