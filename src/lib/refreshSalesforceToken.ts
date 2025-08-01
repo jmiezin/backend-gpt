@@ -1,5 +1,7 @@
+// 📄 src/lib/refreshSalesforceToken.ts
+
 import fetch from "node-fetch";
-import getSalesforceToken from "./getSalesforceToken";
+import { getSalesforceToken } from "./getSalesforceToken";
 import { saveSalesforceToken } from "./saveSalesforceToken";
 import { decrypt } from "../utils/encryption";
 
