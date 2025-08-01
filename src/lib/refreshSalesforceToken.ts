@@ -1,8 +1,7 @@
-// 📄 src/lib/refreshSalesforceToken.ts
 import fetch from "node-fetch";
-import getToken from './getSalesforceToken'
-import { saveSalesforceToken } from './saveSalesforceToken';
-import { decrypt } from '../utils/encryption';
+import getSalesforceToken from "./getSalesforceToken";
+import { saveSalesforceToken } from "./saveSalesforceToken";
+import { decrypt } from "../utils/encryption";
 
 const TOKEN_URL = `${process.env.SF_LOGIN_URL}/services/oauth2/token`;
 
@@ -25,7 +24,7 @@ export async function refreshSalesforceToken(userId: string) {
 
   if (!resp.ok) {
     const err = await resp.text();
-    console.error("❌ Erreur lors du refresh du token:", err);
+    console.error("❌ Erreur lors du refresh du token :", err);
     throw new Error("Erreur lors du refresh du token");
   }
 
@@ -42,6 +41,6 @@ export async function refreshSalesforceToken(userId: string) {
     id:            current.id,
   });
 
-  console.log(`🔄 refreshSalesforceToken: nouveau token enregistré pour ${userId}`);
+  console.log(`🔄 refreshSalesforceToken : nouveau token pour ${userId}`);
   return data.access_token;
 }
