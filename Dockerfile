@@ -1,23 +1,27 @@
-# 📄 backend-universel/Dockerfile
+# 📄 Dockerfile
+
 FROM node:18
 
-# Crée un dossier de travail
+# Dossier de travail
 WORKDIR /app
 
-# Copie les fichiers de dépendances
-COPY package*.json ./
+# Copie des fichiers de dépendances + config TypeScript
+COPY package*.json tsconfig.json ./
 
-# Installe les dépendances
+# Installation des dépendances
 RUN npm install
 
-# Copie tout le reste du code
+# Copie du reste du code source
 COPY . .
 
-# Compile TypeScript
+# Compilation TypeScript
 RUN npm run build
 
-# Expose le port
+# Vérification que le dossier dist/ est bien créé
+RUN ls -la dist
+
+# Port exposé pour Azure (doit matcher process.env.PORT ou 8080)
 EXPOSE 8080
 
-# Démarre l'application
+# Démarrage de l'application
 CMD ["npm", "start"]
