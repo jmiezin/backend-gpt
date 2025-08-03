@@ -75,6 +75,6 @@ app.use((err: any, _req: express.Request, res: express.Response, _next: any) => 
 });
 
 // --- Démarrage du serveur ---
-app.listen(PORT, () => {
-  console.log(`[✅ SERVEUR] En écoute sur http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`[✅ SERVEUR] En écoute sur http://0.0.0.0:${PORT}`);
 });
