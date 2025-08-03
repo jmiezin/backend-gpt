@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.hasRole = exports.getEffectiveUserId = exports.validateAccessToken = void 0;
 require("../config/env");
-const express_jwt_1 = __importDefault(require("express-jwt"));
+const express_jwt_1 = require("express-jwt");
 const jwks_rsa_1 = __importDefault(require("jwks-rsa"));
 // Chargement des variables d'environnement
 const tenantId = process.env.AZURE_TENANT_ID;
@@ -15,7 +15,7 @@ const issuer = `https://sts.windows.net/${tenantId}/`;
 const jwksUri = `https://login.microsoftonline.com/${tenantId}/discovery/v2.0/keys`;
 // ✅ Middleware principal : vérifie l'accès via JWT
 function validateAccessToken(requiredScope) {
-    const checkJwt = (0, express_jwt_1.default)({
+    const checkJwt = (0, express_jwt_1.expressjwt)({
         secret: jwks_rsa_1.default.expressJwtSecret({
             cache: true,
             rateLimit: true,

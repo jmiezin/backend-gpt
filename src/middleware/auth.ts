@@ -2,7 +2,7 @@
 
 import "../config/env";
 import { Request, Response, NextFunction } from "express";
-import jwt from "express-jwt";
+import { expressjwt } from "express-jwt";
 import jwksRsa from "jwks-rsa";
 
 // Chargement des variables d'environnement
@@ -13,7 +13,7 @@ const jwksUri = `https://login.microsoftonline.com/${tenantId}/discovery/v2.0/ke
 
 // ✅ Middleware principal : vérifie l'accès via JWT
 export function validateAccessToken(requiredScope?: string) {
-  const checkJwt = jwt({
+  const checkJwt = expressjwt({
     secret: jwksRsa.expressJwtSecret({
       cache: true,
       rateLimit: true,
