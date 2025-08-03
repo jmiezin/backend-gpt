@@ -19,7 +19,7 @@ export function validateAccessToken(requiredScope?: string) {
       rateLimit: true,
       jwksRequestsPerMinute: 5,
       jwksUri,
-    }),
+    }) as any, // 🔧 Cast temporaire pour éviter TS error
     audience,
     issuer,
     algorithms: ["RS256"],
