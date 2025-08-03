@@ -25,7 +25,7 @@ import scanRoutes from "./routes/scanRoutes";
 import permissionsRoutes from "./routes/permissionsRoutes";
 import structureRoutes from "./routes/structureRoutes";
 
-const PORT = process.env.PORT || 8080;
+const PORT = Number(process.env.PORT) || 8080;
 const app = express();
 
 // --- Middlewares globaux ---
