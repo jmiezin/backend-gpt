@@ -24,6 +24,7 @@ import openaiRoutes from "./routes/openaiRoutes";
 import scanRoutes from "./routes/scanRoutes";
 import permissionsRoutes from "./routes/permissionsRoutes";
 import structureRoutes from "./routes/structureRoutes";
+import ragRoutes from "./routes/rag";
 
 const PORT = Number(process.env.PORT) || 8080;
 const app = express();
@@ -66,6 +67,7 @@ app.use("/openai", openaiRoutes);
 app.use("/scan", scanRoutes);
 app.use("/permissions", permissionsRoutes);
 app.use("/structure", structureRoutes);
+app.use("/rag", ragRoutes);
 
 // --- Gestion des erreurs 404 & 500 ---
 app.use((_req, res) => res.status(404).json({ error: "Not Found" }));
