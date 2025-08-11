@@ -1,0 +1,1 @@
+This is a sample document for testing the RAG system. It contains information about artificial intelligence and machine learning concepts. Machine learning is a subset of artificial intelligence that focuses on the development of algorithms and statistical models that enable computer systems to improve their performance on a specific task through experience.
