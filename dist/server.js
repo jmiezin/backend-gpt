@@ -25,6 +25,7 @@ const openaiRoutes_1 = __importDefault(require("./routes/openaiRoutes"));
 const scanRoutes_1 = __importDefault(require("./routes/scanRoutes"));
 const permissionsRoutes_1 = __importDefault(require("./routes/permissionsRoutes"));
 const structureRoutes_1 = __importDefault(require("./routes/structureRoutes"));
+const rag_1 = __importDefault(require("./routes/rag"));
 const PORT = Number(process.env.PORT) || 8080;
 const app = (0, express_1.default)();
 // --- Middlewares globaux ---
@@ -56,6 +57,7 @@ app.use("/openai", openaiRoutes_1.default);
 app.use("/scan", scanRoutes_1.default);
 app.use("/permissions", permissionsRoutes_1.default);
 app.use("/structure", structureRoutes_1.default);
+app.use("/rag", rag_1.default);
 // --- Gestion des erreurs 404 & 500 ---
 app.use((_req, res) => res.status(404).json({ error: "Not Found" }));
 app.use((err, _req, res, _next) => {
